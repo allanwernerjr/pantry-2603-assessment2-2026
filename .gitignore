@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.env
+
+# Database (each person runs their own locally)
+*.db
+*.sqlite
+
+# OS clutter
+.DS_Store
+Thumbs.db

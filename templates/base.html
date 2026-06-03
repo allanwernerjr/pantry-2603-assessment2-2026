@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Pantry{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <!-- Desktop Style Left Bar Main Navigation (tablet viewport & up) -->
+    <nav class="left-nav">
+        <header class="left-nav-logo">
+            <a href="{{ url_for('home') }}">Pantry</a>
+        </header>
+
+        <ul class="left-nav-links">
+            <li><a href="{{ url_for('home') }}"        class="{{ 'is-active' if active_page == 'home' }}">Home</a></li>
+            <li><a href="{{ url_for('pantry') }}"      class="{{ 'is-active' if active_page == 'pantry' }}">My Pantry</a></li>
+            <li><a href="{{ url_for('recipes') }}"     class="{{ 'is-active' if active_page == 'recipes' }}">My Recipes</a></li>
+            <li><a href="{{ url_for('suggestions') }}" class="{{ 'is-active' if active_page == 'suggestions' }}">Suggested Recipes</a></li>
+            <li><a href="{{ url_for('planned') }}"     class="{{ 'is-active' if active_page == 'planned' }}">Planned Meals</a></li>
+            <li><a href="{{ url_for('cooked') }}"      class="{{ 'is-active' if active_page == 'cooked' }}">Cooked Meals</a></li>
+            <li><a href="{{ url_for('shopping') }}"    class="{{ 'is-active' if active_page == 'shopping' }}">Shopping Lists</a></li>
+            <li><a href="{{ url_for('orders') }}"      class="{{ 'is-active' if active_page == 'orders' }}">Previous Orders</a></li>
+        </ul>
+
+        <!-- Account area. Settings / Log out menu to be added later. -->
+        <footer class="left-nav-account">
+            <span class="account-icon">A</span>
+            <span class="account-name">Allan</span>
+        </footer>
+    </nav>
+
+
+    <!-- Main Content Block -->
+    <main class="content">
+        {% block content %}{% endblock %}
+    </main>
+
+
+    <!-- Mobile Style, Bottom Bar Main Navigation (mobile only) -->
+    <nav class="bottom-nav">
+        <a href="{{ url_for('home') }}"     class="{{ 'is-active' if active_page == 'home' }}">Home</a>
+        <a href="{{ url_for('pantry') }}"   class="{{ 'is-active' if active_page == 'pantry' }}">Pantry</a>
+        <a href="{{ url_for('recipes') }}"  class="{{ 'is-active' if active_page in ['recipes', 'suggestions'] }}">Recipes</a>
+        <a href="{{ url_for('planned') }}"  class="{{ 'is-active' if active_page in ['planned', 'cooked'] }}">Meals</a>
+        <a href="{{ url_for('shopping') }}" class="{{ 'is-active' if active_page in ['shopping', 'orders'] }}">Shopping</a>
+    </nav>
+
+</body>
+</html>
