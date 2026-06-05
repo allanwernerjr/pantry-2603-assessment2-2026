@@ -88,6 +88,41 @@ Open a Pull Request into `main`.
 
 Another team member should review the changes before merging where possible.
 
+### Pull Request Process
+
+1. Create a feature branch from `main`
+2. Complete the assigned task
+3. Push the branch to GitHub
+4. Open a Pull Request into `main`
+5. Another team member should review the changes where possible
+6. Merge using **Squash and Merge**
+7. Delete the feature branch after merging
+
+### Merge Strategy
+
+The Pantry project uses **Squash and Merge** for all Pull Requests.
+
+This keeps the commit history clean and prevents multiple small development commits from cluttering the `main` branch.
+
+Example:
+
+Feature Branch Commits:
+
+```text
+Fix navbar spacing
+Fix navbar spacing again
+Update CSS
+Remove unused code
+```
+
+After Squash and Merge:
+
+```text
+Add responsive navigation layout
+```
+
+This results in a cleaner and more readable project history.
+
 ---
 
 ## Commit Message Guidelines
