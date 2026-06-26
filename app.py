@@ -1,3 +1,4 @@
+import os
 from flask import Flask
 from models import User, Ingredient, db
 from api_helper import fetch_ingredient_list
@@ -16,7 +17,7 @@ app = Flask(__name__)
 
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///pantry.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False  # don't need this, just saves memory
-app.config["SECRET_KEY"] = 'thisisasecretkey'
+app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY", "thisisasecretkey")
 
 # ============================================================================
 # DATABASE INITIALIZATION
